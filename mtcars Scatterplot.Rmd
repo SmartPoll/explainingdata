@@ -1,0 +1,20 @@
+---
+title: "Scatterplot of the relationship between a car's horsepower and miles per gallon"
+author: "Andrew Bryant"
+date: "February 2, 2018"
+output: html_document
+---
+
+The below code will create a scatterplot of the relationship between a car's horsepower and miles per gallon.
+
+```{r chart}
+
+# Install and load ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Create chart
+ggplot(mtcars, aes(hp, mpg)) + geom_point(alpha = 0.25, color = 'blue') + theme(legend.position="none") + ggtitle("Scatterplot of the relationship between a car's horsepower (x) and (miles per gallon (y)") + xlab("Horsepower (hp)") + ylab("Miles per gallon (mpg)") + theme(plot.title = element_text(hjust = 0.5)) + xlim(0, 400) + ylim(0, 35)
+
+
+```

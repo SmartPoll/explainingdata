@@ -1,0 +1,26 @@
+---
+title: "United States Unemployment Rate 2008 - 2011"
+author: "Andrew Bryant"
+date: "February 2, 2018"
+output: html_document
+---
+
+The below code will create a line chart of the United States' unemployment rate from 2008 to 2011.
+Data come from https://fred.stlouisfed.org/series/UNRATE, downloading the csv of the data from the time period 1 Jan 2008 to 31 Dec 2011.
+
+```{r chart}
+
+# Set directory
+setwd("C:/Users/AndrewB/Downloads")
+
+# Load data
+unrate <- read.csv("UNRATE.csv")
+
+# Install and load ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Create chart
+ggplot(unrate, aes(DATE, UNRATE, group = 1)) + geom_line() + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ylim(0, 11) + ggtitle("United States Unemployment Rate 2008 - 2011") + xlab("Date") + ylab("Unemployment Rate (%)") + theme(plot.title = element_text(hjust = 0.5))
+
+```

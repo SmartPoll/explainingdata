@@ -1,0 +1,26 @@
+---
+title: "World Happiness Data Boxplots"
+author: "Andrew Bryant"
+date: "February 2, 2018"
+output: html_document
+---
+
+The below code will create a bubble chart of a car's horsepower(x), miles per gallon (y), and weight (bubble size). The data are from: https://www.kaggle.com/unsdsn/world-happiness
+
+```{r chart}
+
+# Set working directory
+setwd("C:/Users/AndrewB/Downloads/world-happiness-report")
+
+# Load data
+happiness2015 <- read.csv("2015.csv")
+
+# Install and load ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Create chart
+ggplot(mtcars, aes(hp, mpg)) + geom_point(aes(size = wt), alpha = 0.25, color = 'blue') + theme(legend.position="none") + ggtitle("Bubble chart of the relationship between a car's horsepower (x), (miles per gallon (y), and weight (size)") + xlab("Horsepower (hp)") + ylab("Miles per gallon (mpg)") + theme(plot.title = element_text(hjust = 0.5)) + xlim(0, 400) + ylim(0, 35)
+
+
+```
