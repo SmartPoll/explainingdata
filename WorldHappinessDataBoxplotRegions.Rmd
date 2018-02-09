@@ -1,0 +1,29 @@
+---
+title: "World Happiness Data Boxplots by Selected Regions"
+author: "Andrew Bryant"
+date: "February 2, 2018"
+output: html_document
+---
+
+The below code will create a bubble chart of a car's horsepower(x), miles per gallon (y), and weight (bubble size). The data are from: https://www.kaggle.com/unsdsn/world-happiness
+
+```{r chart}
+
+# Set working directory
+setwd("C:/Users/AndrewB/Downloads/world-happiness-report")
+
+# Load data
+happiness2015 <- read.csv("2015.csv")
+
+# Install and load ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Select regions
+regions <- c("Central and Eastern Europe", "Latin America and Caribbean", "North America", "Western Europe") 
+
+# Create chart
+ggplot(subset(happiness2015, happiness2015$Region %in% regions) , aes(Region, Happiness.Score)) + geom_boxplot() + ylim(0, 8) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ggtitle("Boxplots of 2015 world happiness scores by selected regions") + ylab("Happiness score") + theme(plot.title = element_text(hjust = 0.5))
+
+
+```

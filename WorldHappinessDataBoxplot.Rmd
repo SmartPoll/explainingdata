@@ -20,7 +20,8 @@ install.packages("ggplot2", repos = "http://cran.us.r-project.org")
 library(ggplot2)
 
 # Create chart
-ggplot(mtcars, aes(hp, mpg)) + geom_point(aes(size = wt), alpha = 0.25, color = 'blue') + theme(legend.position="none") + ggtitle("Bubble chart of the relationship between a car's horsepower (x), (miles per gallon (y), and weight (size)") + xlab("Horsepower (hp)") + ylab("Miles per gallon (mpg)") + theme(plot.title = element_text(hjust = 0.5)) + xlim(0, 400) + ylim(0, 35)
+ggplot(happiness2015, aes(Region, Happiness.Score)) + geom_boxplot() + ylim(0, 8) + theme(axis.text.x = element_text(angle = 90, hjust = 1)) + ggtitle("Boxplots of 2015 world happiness scores") + ylab("Happiness score") + theme(plot.title = element_text(hjust = 0.5))
+
 
 
 ```

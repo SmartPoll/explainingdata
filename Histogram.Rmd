@@ -1,0 +1,28 @@
+---
+title: "Histogram of % White Population"
+author: "Andrew Bryant"
+date: "February 9, 2018"
+output: html_document
+---
+
+Data from: https://www.kaggle.com/muonneutrino/us-census-demographic-data
+
+```{r chart}
+
+# Set working directory
+setwd("C:/Users/AndrewB/Downloads/us-census-demographic-data")
+
+# Load data
+census <- read.csv("acs2015_county_data.csv")
+
+# Install ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Create chart
+ggplot(census, aes(White)) + 
+  geom_histogram(bins = 100) + 
+  xlab("% of total county population that is white") +
+  ggtitle("Histogram of the % of population that is white in U.S. counties") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
