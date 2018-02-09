@@ -1,0 +1,26 @@
+---
+title: "mtcars Scatterplot With Prediction Line"
+author: "Andrew Bryant"
+date: "February 9, 2018"
+output: html_document
+---
+
+
+
+```{r chart}
+
+# Install ggplot2
+install.packages("ggplot2", repos = "http://cran.us.r-project.org")
+library(ggplot2)
+
+# Create chart
+ggplot(mtcars, aes(hp, mpg)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  xlim(0, 350) +
+  ylim(0, 35) +
+  ggtitle("Scatterplot of horsepower and miles per gallon with prediction line") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
